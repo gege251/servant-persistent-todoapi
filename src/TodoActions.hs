@@ -39,8 +39,8 @@ delTodo todoId = do
   return NoContent
 
 
-updateTodo :: Entity Todo -> AppM NoContent
-updateTodo (Entity key todo) = do
-  runDB $ replace key todo
+updateTodo :: Int64 -> Entity Todo -> AppM NoContent
+updateTodo todoId (Entity _ todo) = do
+  runDB $ replace (toSqlKey todoId :: TodoId) todo
   return NoContent
 

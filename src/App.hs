@@ -33,10 +33,10 @@ import           Model                       (migrateAll)
 run :: IO ()
 run = do
   envPort <- lookupEnv "PORT"
-  pool <- runStdoutLoggingT $ createSqlitePool "test.sqlite" 10
+  pool <- runStdoutLoggingT $ createSqlitePool Config.sqlConnection 10
   runSqlPersistMPool (runMigration migrateAll) pool
   let config = Config pool
-  let port = maybe 3030 read envPort :: Int
+  let port = maybe Config.defaultPort read envPort :: Int
       settings =
         setPort port $
         setBeforeMainLoop (hPutStrLn stderr ("listening on port " ++ show port)) $

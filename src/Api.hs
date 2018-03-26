@@ -32,7 +32,7 @@ type TodoApi =
   "todo" :> Capture "todoId" Int64 :> Delete '[JSON] NoContent :<|>
 
   -- PATCH /todo
-  "todo" :> ReqBody '[JSON] (Entity Todo) :> Patch '[JSON] NoContent
+  "todo" :> Capture "todoId" Int64 :> ReqBody '[JSON] (Entity Todo) :> Patch '[JSON] NoContent
 
 todoApi :: Proxy TodoApi
 todoApi = Proxy

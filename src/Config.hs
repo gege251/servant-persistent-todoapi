@@ -8,6 +8,7 @@ import           Control.Monad.Reader        (ReaderT, asks)
 import           Control.Monad.IO.Unlift     (MonadUnliftIO)
 import           Control.Monad.IO.Class      (liftIO)
 import           Data.Pool                   (Pool)
+import           Data.Text                   (Text)
 import           Database.Persist.Sql        (SqlBackend)
 import           Network.Wai.Middleware.Cors (Origin)
 import           Database.Persist.Sqlite     (runSqlPool)
@@ -22,6 +23,11 @@ type AppM = ReaderT Config Handler
 feHost :: Origin
 feHost = "http://localhost:8000"
 
+defaultPort :: Int
+defaultPort = 3030
+
+sqlConnection :: Text
+sqlConnection = "test.sqlite" 
 
 getPool :: AppM (Pool SqlBackend)
 getPool = 
