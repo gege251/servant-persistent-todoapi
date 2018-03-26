@@ -1,0 +1,113 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 0383581f285f1a022cfdf10989f08b75b29b6397b1614fbf9fab03cc96df93f6
+
+name:           servant-persistent-todoapi
+version:        0.1.0.0
+description:    Please see the README on Github at <https://github.com/gege251/servant-persitent-todoapi#readme>
+homepage:       https://github.com/gege251/servant-persistent-todoapi#readme
+bug-reports:    https://github.com/gege251/servant-persistent-todoapi/issues
+author:         Szabo Gergely
+copyright:      2018 Szabo Gergely
+license:        BSD3
+build-type:     Simple
+cabal-version:  >= 1.10
+
+source-repository head
+  type: git
+  location: https://github.com/gege251/servant-persistent-todoapi
+
+library
+  hs-source-dirs:
+      src
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , base
+    , bytestring
+    , monad-logger
+    , mtl
+    , persistent
+    , persistent-sqlite
+    , persistent-template
+    , resource-pool
+    , servant
+    , servant-server <=0.13
+    , text
+    , transformers
+    , unliftio-core
+    , wai
+    , wai-cors
+    , warp
+  exposed-modules:
+      Api
+      App
+      Config
+      Model
+      TodoActions
+      Utils
+  other-modules:
+      Paths_servant_persistent_todoapi
+  default-language: Haskell2010
+
+executable servant-persistent-todoapi
+  main-is: exe/Main.hs
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , base
+    , bytestring
+    , monad-logger
+    , mtl
+    , persistent
+    , persistent-sqlite
+    , persistent-template
+    , resource-pool
+    , servant
+    , servant-persistent-todoapi
+    , servant-server <=0.13
+    , text
+    , transformers
+    , unliftio-core
+    , wai
+    , wai-cors
+    , warp
+  other-modules:
+      Paths_servant_persistent_todoapi
+  default-language: Haskell2010
+
+test-suite spec
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , base
+    , bytestring
+    , hspec
+    , http-client
+    , http-types
+    , monad-logger
+    , mtl
+    , persistent
+    , persistent-sqlite
+    , persistent-template
+    , resource-pool
+    , servant
+    , servant-client
+    , servant-persistent-todoapi
+    , servant-server <=0.13
+    , text
+    , transformers
+    , unliftio-core
+    , wai
+    , wai-cors
+    , warp
+  other-modules:
+      AppSpec
+      Paths_servant_persistent_todoapi
+  default-language: Haskell2010
