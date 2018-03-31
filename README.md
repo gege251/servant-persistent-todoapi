@@ -1,6 +1,7 @@
 # Servant-Persistent API for a simple todo app
 
 This is a simple REST Api built with Servant and Persist.
+Should work together with the **todo-with-restapi** in [gege251/elm-examples](https://github.com/gege251/elm-examples).
 
 ## Get started
 
@@ -22,7 +23,7 @@ GET
 
 
 ### Create a new todo
-PUT
+POST
 /todo
 
 Sample request:
@@ -36,7 +37,7 @@ DELETE
 
 
 ### Modify a todo
-PATCH
+PUT
 /todo
 
 Sample request:
@@ -46,5 +47,4 @@ Sample request:
   "value": "learn you a Haskell"
   "done": true
 }
-````
-
+```

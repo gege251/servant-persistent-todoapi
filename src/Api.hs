@@ -25,14 +25,14 @@ type TodoApi =
   -- GET /todo/:todoId
   "todo" :> Capture "todoId" Int64 :> Get '[JSON] (Maybe (Entity Todo)) :<|>
 
-  -- PUT /todo
-  "todo" :> ReqBody '[JSON] OnlyValue :> Put '[JSON] (Entity Todo) :<|>
+  -- POST /todo
+  "todo" :> ReqBody '[JSON] OnlyValue :> Post '[JSON] (Entity Todo) :<|>
 
   -- DELETE /todo
   "todo" :> Capture "todoId" Int64 :> Delete '[JSON] NoContent :<|>
 
-  -- PATCH /todo
-  "todo" :> Capture "todoId" Int64 :> ReqBody '[JSON] (Entity Todo) :> Patch '[JSON] NoContent
+  -- PUT /todo
+  "todo" :> Capture "todoId" Int64 :> ReqBody '[JSON] (Entity Todo) :> Put '[JSON] NoContent
 
 todoApi :: Proxy TodoApi
 todoApi = Proxy
